@@ -9,7 +9,7 @@
     text-color="#fff"
     active-text-color="#ffd04b"
   >
-    <h3>通用后台管理系统</h3>
+    <h3>{{isCollapse ? '后台' : '通用后台管理系统'}}</h3>
     <el-menu-item @click='clickMenu(item)' v-for="item in noChildren" :key="item.path" :index="item.path">
       <i :class="'el-icon-'+item.icon"></i>
       <span slot="title">{{item.label}}</span>
@@ -46,7 +46,6 @@
   export default {
     data() {
       return {
-        isCollapse: false,
         //数据
         menu: [
             {
@@ -112,6 +111,9 @@
       },
       hasChildren(){
         return this.menu.filter(item=>item.children)
+      },
+      isCollapse(){
+        return this.$store.state.tab.isCollapse
       }
     }
   }
