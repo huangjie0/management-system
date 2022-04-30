@@ -6,18 +6,18 @@
     @close="handleClose"
     :collapse="isCollapse"
   >
+    <h3>通用后台管理系统</h3>
     <el-menu-item v-for="item in noChildren" :key="item.path" :index="item.path">
       <i :class="'el-icon-'+item.icon"></i>
       <span slot="title">{{item.label}}</span>
     </el-menu-item>
-    <el-submenu index="1">
+    <el-submenu v-for="item in hasChildren" :key="item.path" :index="item.path">
       <template slot="title">
-        <i class="el-icon-location"></i>
-        <span slot="title">导航一</span>
+        <i :class="'el-icon-'+item.icon"></i>
+        <span slot="title">{{item.label}}</span>
       </template>
-      <el-menu-item-group>
-        <span slot="title">分组一</span>
-        <el-menu-item index="1-1">选项1</el-menu-item>
+      <el-menu-item-group v-for="subitem in item.children" :key="subitem.path">
+        <el-menu-item :index="subitem.path">{{subitem.label}}</el-menu-item>
       </el-menu-item-group>
     </el-submenu>
   </el-menu>
