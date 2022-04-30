@@ -138,13 +138,12 @@ export default {
         };
     },
     mounted(){
-        this.$http.get('/user/12345')
-        .then(function(response) {
-            console.log(response.data);
-            console.log(response.status);
-            console.log(response.statusText);
-            console.log(response.headers);
-            console.log(response.config);
+        this.$http.get('/user?ID=12345')
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
         });
     }
 };
