@@ -48,95 +48,105 @@
 
 <script>
 export default {
-  name: "Home",
-  data() {
-    return {
-      userImg: require("../../assets/images/user.png"),
-      tableData: [
-        {
-          name: "oppo",
-          todayBuy: 500,
-          monthBuy: 3500,
-          totalBuy: 22000,
+    name: "Home",
+    data() {
+        return {
+        userImg: require("../../assets/images/user.png"),
+        tableData: [
+            {
+            name: "oppo",
+            todayBuy: 500,
+            monthBuy: 3500,
+            totalBuy: 22000,
+            },
+            {
+            name: "vivo",
+            todayBuy: 300,
+            monthBuy: 2200,
+            totalBuy: 24000,
+            },
+            {
+            name: "苹果",
+            todayBuy: 800,
+            monthBuy: 4500,
+            totalBuy: 65000,
+            },
+            {
+            name: "小米",
+            todayBuy: 1200,
+            monthBuy: 6500,
+            totalBuy: 45000,
+            },
+            {
+            name: "三星",
+            todayBuy: 300,
+            monthBuy: 2000,
+            totalBuy: 34000,
+            },
+            {
+            name: "魅族",
+            todayBuy: 350,
+            monthBuy: 3000,
+            totalBuy: 22000,
+            },
+        ],
+        tableLabel: {
+            name: "课程",
+            todayBuy: "今日购买",
+            monthBuy: "本月购买",
+            totalBuy: "总购买",
         },
-        {
-          name: "vivo",
-          todayBuy: 300,
-          monthBuy: 2200,
-          totalBuy: 24000,
-        },
-        {
-          name: "苹果",
-          todayBuy: 800,
-          monthBuy: 4500,
-          totalBuy: 65000,
-        },
-        {
-          name: "小米",
-          todayBuy: 1200,
-          monthBuy: 6500,
-          totalBuy: 45000,
-        },
-        {
-          name: "三星",
-          todayBuy: 300,
-          monthBuy: 2000,
-          totalBuy: 34000,
-        },
-        {
-          name: "魅族",
-          todayBuy: 350,
-          monthBuy: 3000,
-          totalBuy: 22000,
-        },
-      ],
-      tableLabel: {
-        name: "课程",
-        todayBuy: "今日购买",
-        monthBuy: "本月购买",
-        totalBuy: "总购买",
-      },
-        //统计数据
-      countDate: [
-        {
-          name: "今日支付订单",
-          value: 1234,
-          icon: "success",
-          color: "#2ec7c9",
-        },
-        {
-          name: "今日收藏订单",
-          value: 210,
-          icon: "star-on",
-          color: "#ffb980",
-        },
-        {
-          name: "今日未支付订单",
-          value: 1234,
-          icon: "s-goods",
-          color: "#5ab1ef",
-        },
-        {
-          name: "本月支付订单",
-          value: 1234,
-          icon: "success",
-          color: "#2ec7c9",
-        },
-        {
-          name: "本月收藏订单",
-          value: 210,
-          icon: "star-on",
-          color: "#ffb980",
-        },
-        {
-          name: "本月未支付订单",
-          value: 1234,
-          icon: "s-goods",
-          color: "#5ab1ef",
-        },
-      ],
-    };
-  },
+            //统计数据
+        countDate: [
+            {
+            name: "今日支付订单",
+            value: 1234,
+            icon: "success",
+            color: "#2ec7c9",
+            },
+            {
+            name: "今日收藏订单",
+            value: 210,
+            icon: "star-on",
+            color: "#ffb980",
+            },
+            {
+            name: "今日未支付订单",
+            value: 1234,
+            icon: "s-goods",
+            color: "#5ab1ef",
+            },
+            {
+            name: "本月支付订单",
+            value: 1234,
+            icon: "success",
+            color: "#2ec7c9",
+            },
+            {
+            name: "本月收藏订单",
+            value: 210,
+            icon: "star-on",
+            color: "#ffb980",
+            },
+            {
+            name: "本月未支付订单",
+            value: 1234,
+            icon: "s-goods",
+            color: "#5ab1ef",
+            },
+        ],
+        };
+    },
+    mounted(){
+        this.$http.get('/user/12345')
+        .then(function(response) {
+            console.log(response.data);
+            console.log(response.status);
+            console.log(response.statusText);
+            console.log(response.headers);
+            console.log(response.config);
+        });
+    }
 };
 </script>
 
