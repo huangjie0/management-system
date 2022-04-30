@@ -10,17 +10,17 @@
     active-text-color="#ffd04b"
   >
     <h3>{{isCollapse ? '后台' : '通用后台管理系统'}}</h3>
-    <el-menu-item @click='clickMenu(item)' v-for="item in noChildren" :key="item.path" :index="item.path">
+    <el-menu-item @click='clickMenu(item)' v-for="item in noChildren" :key="item.path" :index="item.path+''">
       <i :class="'el-icon-'+item.icon"></i>
       <span slot="title">{{item.label}}</span>
     </el-menu-item>
-    <el-submenu v-for="item in hasChildren" :key="item.path" :index="item.path">
+    <el-submenu v-for="item in hasChildren" :key="item.path" :index="item.path+''">
       <template slot="title">
         <i :class="'el-icon-'+item.icon"></i>
         <span slot="title">{{item.label}}</span>
       </template>
       <el-menu-item-group v-for="subitem in item.children" :key="subitem.path">
-        <el-menu-item :index="subitem.path">{{subitem.label}}</el-menu-item>
+        <el-menu-item :index="subitem.path+''">{{subitem.label}}</el-menu-item>
       </el-menu-item-group>
     </el-submenu>
   </el-menu>

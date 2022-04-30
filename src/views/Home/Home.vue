@@ -1,6 +1,6 @@
 <template>
-    <el-row class="home" gutter="20">
-        <el-row :span="8" style="margin-top 20px;">
+    <el-row class="home" :gutter="20">
+        <el-col :span="8" style="margin-top 20px;">
             <el-card shadow="hover">
                 <div class="user">
                     <img :src="userImg">
@@ -14,9 +14,13 @@
                     <p>上次登录的地点：<span>南京</span></p>
                 </div>
             </el-card>
-        </el-row>
+        </el-col>
+        <el-card style="margin-top:20px;height:460px;">
+            <el-table>
+                
+            </el-table>
+        </el-card>
     </el-row>
-  
 </template>
 
 <script>
@@ -24,7 +28,7 @@ export default {
     name:'Home',
     data() {
         return {
-            userImg:require('../../assets/images/user.png')
+            userImg:require('../../assets/images/user.png'),
         }
     },
 
