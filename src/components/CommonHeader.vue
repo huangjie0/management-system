@@ -41,7 +41,6 @@ export default {
         align-items: center;
         .el-button{
             margin-right: 20px;
-
         }
     }
     .r-content{
