@@ -5,9 +5,12 @@
     @open="handleOpen"
     @close="handleClose"
     :collapse="isCollapse"
+    background-color="#545c64"
+    text-color="#fff"
+    active-text-color="#ffd04b"
   >
     <h3>通用后台管理系统</h3>
-    <el-menu-item v-for="item in noChildren" :key="item.path" :index="item.path">
+    <el-menu-item @click='clickMenu(item)' v-for="item in noChildren" :key="item.path" :index="item.path">
       <i :class="'el-icon-'+item.icon"></i>
       <span slot="title">{{item.label}}</span>
     </el-menu-item>
@@ -23,10 +26,19 @@
   </el-menu>
 </template>
 
-<style>
+<style lang='less' scoped>
   .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;
     min-height: 400px;
+  }
+  .el-menu{
+    height: 100%;
+    border: none;
+    h3{
+      color: #fff;
+      text-align: center;
+      line-height: 48px;
+    }
   }
 </style>
 
@@ -87,6 +99,11 @@
       },
       handleClose(key, keyPath) {
         console.log(key, keyPath);
+      },
+       clickMenu(item){
+        this.$router.push({
+          name:item.name
+        })
       }
     },
     computed:{
