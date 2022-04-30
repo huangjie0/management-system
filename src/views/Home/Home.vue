@@ -96,7 +96,7 @@ export default {
             monthBuy: "本月购买",
             totalBuy: "总购买",
         },
-            //统计数据
+        //统计数据
         countDate: [
             {
             name: "今日支付订单",
