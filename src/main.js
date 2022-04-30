@@ -6,7 +6,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import './assets/less/index.less'
 import router from './router'
 import store from './store'
-
+import Router from 'vue-router'
 Vue.config.productionTip = false
 Vue.use(Button);
 Vue.use(Radio);
@@ -24,7 +24,11 @@ Vue.use(DropdownItem);
 Vue.use(Row);
 Vue.use(Col);
 Vue.use(Card);
-
+//配置路由信息
+const originalPush = Router.prototype.push
+Router.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 new Vue({
   render: h => h(App),
   router,
