@@ -8,6 +8,7 @@ import router from './router'
 import store from './store'
 import Router from 'vue-router'
 import http from 'axios'
+import './api/mock.js'
 Vue.prototype.$http = http
 Vue.config.productionTip = false
 Vue.use(Button);
