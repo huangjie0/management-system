@@ -153,6 +153,15 @@ export default {
         E.setOption(option);
         //用户图
         const userOption = {
+           toolbox: {
+            show: true,
+            feature: {
+              mark: { show: true },
+              dataView: { show: true, readOnly: false },
+              restore: { show: true },
+              saveAsImage: { show: true }
+            }
+          },
           legend: {
             // 图例文字颜色
             textStyle: {
