@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import {getMenu} from '../../api/data'
 export default {
     name: "Home",
     data() {
@@ -145,6 +146,9 @@ export default {
         .catch(function (error) {
             console.log(error);
         });
+        getMenu().then(res=>{
+          console.log(res)
+        })
     }
 };
 </script>
