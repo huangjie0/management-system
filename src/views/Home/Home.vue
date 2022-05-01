@@ -135,7 +135,7 @@ export default {
             color: "#5ab1ef",
             },
         ],
-        };
+      };
     },
     mounted(){
         this.$http.get('/user?ID=12345')
@@ -150,4 +150,5 @@ export default {
 </script>
 
 <style>
+
 </style>
