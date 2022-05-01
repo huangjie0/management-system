@@ -10,7 +10,7 @@
           </div>
         </div>
         <div class="login-info">
-          <p>上次登录的时间：<span>2021.7.19</span></p>
+          <p>上次登录的时间：<span>{{timeformat}}</span></p>
           <p>上次登录的地点：<span>南京</span></p>
         </div>
       </el-card>
@@ -50,10 +50,12 @@
       <div class="graph">
         <el-card style="height: 260px">
           <div style="height:240px" ref="userEcharts"> 
-
           </div>
         </el-card>
-        <el-card style="height: 260px"></el-card>
+        <el-card style="height: 260px">
+          <div style="height:240px" ref="videoEcharts">
+          </div>
+        </el-card>
       </div>
     </el-col>
   </el-row>
@@ -61,9 +63,15 @@
 
 <script>
 import { getData } from "../../api/data";
+import moment from 'moment'
 import * as echarts from "echarts";
 export default {
   name: "Home",
+  computed:{
+    timeformat(){
+      return moment(new Date()).format('YYYY-MM-DD');
+    }
+  },
   data() {
     return {
       userImg: require("../../assets/images/user.png"),
@@ -199,6 +207,39 @@ export default {
         };
         const U = echarts.init(this.$refs.userEcharts);
         U.setOption(userOption);
+        //饼图实现
+        const videoOption={
+           toolbox: {
+            show: true,
+            feature: {
+              mark: { show: true },
+              dataView: { show: true, readOnly: false },
+              restore: { show: true },
+              saveAsImage: { show: true }
+            }
+          },
+          tooltip: {
+            trigger: "item",
+          },
+          color: [
+            "#0f78f4",
+            "#dd536b",
+            "#9462e5",
+            "#a6a6a6",
+            "#e1bb22",
+            "#39c362",
+            "#3ed1cf",
+          ],
+          series: [
+            {
+              data:data.videoData,
+              type:'pie'
+            }
+          ],
+        }
+        const V = echarts.init(this.$refs.videoEcharts);
+        V.setOption(videoOption);
+        console.log(data)
       }
     });
   },
