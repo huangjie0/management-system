@@ -37,10 +37,13 @@ const routes=[
                 path:'/page2',
                 name:'page2',
                 component:PageTwo
+            },
+            {
+                path:'/',
+                redirect: "home"
             }
         ]
     },
- 
 ]
 const routers = new VueRouter({
     mode:'history',
