@@ -20,7 +20,7 @@
         <span slot="title">{{item.label}}</span>
       </template>
       <el-menu-item-group v-for="subitem in item.children" :key="subitem.path">
-        <el-menu-item :index="subitem.path+''">{{subitem.label}}</el-menu-item>
+        <el-menu-item @click='clickMenu(subitem)' :index="subitem.path+''">{{subitem.label}}</el-menu-item>
       </el-menu-item-group>
     </el-submenu>
   </el-menu>
@@ -99,7 +99,7 @@
       handleClose(key, keyPath) {
         console.log(key, keyPath);
       },
-       clickMenu(item){
+      clickMenu(item){
         this.$router.push({
           name:item.name
         })

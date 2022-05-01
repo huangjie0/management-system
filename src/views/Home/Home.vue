@@ -248,7 +248,6 @@ export default {
         }
         const V = echarts.init(this.$refs.videoEcharts);
         V.setOption(videoOption);
-        console.log(data)
       }
     });
   },
