@@ -13,7 +13,7 @@
 
 <script>
 
-import {mapState} from 'vuex'
+import {mapState,mapMutations} from 'vuex'
 
 export default {
     name:'CommonTag',
@@ -28,13 +28,29 @@ export default {
         })
     },
     methods:{
+        ...mapMutations({
+            close :'closeTag'
+        }),
         changeMenu(item){
             this.$router.push({
                 name:item.name,  
             })
         },
-        handleClose(){
-            
+        handleClose(item,index){
+            const length = this.tags.length-1;
+            this.close(item)
+            if(item.name!==this.$route.name){
+                return;
+            }
+            if(index == length){
+                this.$router.push({
+                    name:this.tags[index-1].name
+                })
+            }else{
+                this.$router.push({
+                    name:this.tags[index].name
+                })
+            }
         }
     }
 }
