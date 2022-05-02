@@ -28,16 +28,25 @@ export default {
         })
     },
     methods:{
-        changeMenu(){
-
+        changeMenu(item){
+            this.$router.push({
+                name:item.name,  
+            })
         },
         handleClose(){
-
+            
         }
     }
 }
 </script>
 
-<style>
+<style lang="less" scoped>
+    .tabs{
+        padding: 20px;
+        .el-tag{
+            margin-right: 15px;
+            cursor: pointer;
+        }
+    }
 
 </style>
