@@ -19,15 +19,20 @@
             <el-button type="primary" @click="getList">搜索</el-button>
             </CommonForm>
         </div>
+        <CommonTable :tableDate="tableDate" :tableLabel="tableLabel">
+
+        </CommonTable>
     </div>
 </template>
 
 <script>
 import CommonForm from '../../components/CommonForm.vue'
+import CommonTable from '../../components/CommonTable.vue'
 export default {
     name:'User',
     components:{
-       CommonForm
+       CommonForm,
+       CommonTable
     },
     methods:{
         confirm(){
@@ -115,7 +120,31 @@ export default {
             ],
             searchForm:{
                 keyword:''
-            }
+            },
+            tableDate:[],
+            tableLabel:[
+                {
+                    prop:'name',
+                    label:'姓名',
+                },
+                  {
+                    prop:'age',
+                    label:'年龄',
+                },
+                {
+                    prop:'',
+                    label:'',
+                },
+                {
+                    prop:'',
+                    label:'',
+                },
+                {
+                    prop:'',
+                    label:'',
+                },
+            
+            ]
         }
     },
 
