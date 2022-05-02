@@ -132,6 +132,7 @@ export default {
         const xData = order.date;
         const keyArray = Object.keys(order.data[0]);
         const series = [];
+        //折线图实现
         keyArray.forEach((key) => {
           series.push({
             name: key,
@@ -151,7 +152,7 @@ export default {
         };
         const E = echarts.init(this.$refs.echarts);
         E.setOption(option);
-        //用户图
+        //柱状图实现
         const userOption = {
            toolbox: {
             show: true,
