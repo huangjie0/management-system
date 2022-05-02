@@ -4,14 +4,14 @@
             <CommonForm :formLabel="operateFormLabel" 
             :form="operateForm" :inline="true"
             ref="form"
-            />
+            ></CommonForm>
             <div slot="footer" class="dialog-footer">
                 <el-button @click="isShow=false">取消</el-button>
                 <el-button type="primary" @click="confirm">确定</el-button>
             </div>
         </el-dialog>
         <div class="manage-header">
-            <el-button type="primary" @click="addUser">新增</el-button>
+            <el-button type="primary" @click="addUser">+新增</el-button>
             <CommonForm :formLabel="formLabel" 
             :form="searchForm" :inline="true"
             ref="form"
@@ -31,13 +31,23 @@ export default {
     },
     methods:{
         confirm(){
-
+            if(this.operateType=='edit'){
+                this.$http.post('/user/edit',this.operateForm).then(res=>{
+                    console.log(res)
+                    this.isShow=false
+                })
+            }else{
+                this.$http.post('/user/add',this.operateForm).then(res=>{
+                    console.log(res)
+                    this.isShow=false
+                })
+            }
         },
         addUser(){
             this.isShow=true
             this.operateType='add',
             this.operateForm={
-                 name:'',
+                name:'',
                 addr:'',
                 age:'',
                 birth:'',
@@ -112,6 +122,11 @@ export default {
 }
 </script>
 
-<style>
+<style lang='less' scoped>
+    .manage-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
 </style>

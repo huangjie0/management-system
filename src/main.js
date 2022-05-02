@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import {Button,Radio,Container,Main,Header,Aside,Menu,Submenu,MenuItemGroup,
   MenuItem,Dropdown,DropdownMenu,DropdownItem,Row,Col,Card,Table,TableColumn,
-  Breadcrumb,BreadcrumbItem,Tag,Form,FormItem,Input,Select,Switch,DatePicker,Option,Dialog} from 'element-ui';
+  Breadcrumb,BreadcrumbItem,Tag,Form,FormItem,Input,Select,Switch,DatePicker,Option,Dialog,Pagination} from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import './assets/less/index.less'
 import router from './router'
@@ -41,6 +41,7 @@ Vue.use(Switch)
 Vue.use(DatePicker)
 Vue.use(Option)
 Vue.use(Dialog)
+Vue.use(Pagination)
 //配置路由信息
 const originalPush = Router.prototype.push
 Router.prototype.push = function push(location) {
