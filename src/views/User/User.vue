@@ -11,7 +11,13 @@
             </div>
         </el-dialog>
         <div class="manage-header">
-            <el-button type="primary">新增</el-button>
+            <el-button type="primary" @click="addUser">新增</el-button>
+            <CommonForm :formLabel="formLabel" 
+            :form="searchForm" :inline="true"
+            ref="form"
+            >
+            <el-button type="primary" @click="getList">搜索</el-button>
+            </CommonForm>
         </div>
     </div>
 </template>
@@ -25,6 +31,20 @@ export default {
     },
     methods:{
         confirm(){
+
+        },
+        addUser(){
+            this.isShow=true
+            this.operateType='add',
+            this.operateForm={
+                 name:'',
+                addr:'',
+                age:'',
+                birth:'',
+                sex:'',
+            }
+        },
+        getList(){
 
         }
     },
@@ -75,6 +95,16 @@ export default {
                 age:'',
                 birth:'',
                 sex:'',
+            },
+            formLabel:[
+                {
+                    model:'keyword',
+                    label:'',
+                    type:'input',
+                }
+            ],
+            searchForm:{
+                keyword:''
             }
         }
     },
