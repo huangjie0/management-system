@@ -22,7 +22,6 @@
         <CommonTable :tableDate="tableDate" :tableLabel="tableLabel" :config="config"
         @changePage='getList()' @edit='editUser' @del='delUser'
         >
-
         </CommonTable>
     </div>
 </template>
@@ -62,13 +61,13 @@ export default {
             }
         },
         getList(){
-
+            
         },
         editUser(){
 
         },
         delUser(){
-            
+
         }
 
     },
