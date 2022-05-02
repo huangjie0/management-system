@@ -19,7 +19,9 @@
             <el-button type="primary" @click="getList">搜索</el-button>
             </CommonForm>
         </div>
-        <CommonTable :tableDate="tableDate" :tableLabel="tableLabel">
+        <CommonTable :tableDate="tableDate" :tableLabel="tableLabel" :config="config"
+        @changePage='getList()' @edit='editUser' @del='delUser'
+        >
 
         </CommonTable>
     </div>
@@ -61,7 +63,14 @@ export default {
         },
         getList(){
 
+        },
+        editUser(){
+
+        },
+        delUser(){
+            
         }
+
     },
     data() {
         return {
@@ -132,19 +141,25 @@ export default {
                     label:'年龄',
                 },
                 {
-                    prop:'',
-                    label:'',
+                    prop:'sexLabel',
+                    label:'性别',
                 },
                 {
-                    prop:'',
-                    label:'',
+                    prop:'birth',
+                    label:'出生日期',
+                    width:200
                 },
                 {
-                    prop:'',
-                    label:'',
+                    prop:'addr',
+                    label:'地址',
+                    width:320
                 },
             
-            ]
+            ],
+            config:{
+                page:1,
+                total:30
+            }
         }
     },
 
